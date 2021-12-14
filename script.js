@@ -27,7 +27,24 @@ function criarcobrinha(){ /*vai pintar o corpo da cobrinha de verde e vai setar*
 	}
 }
 
+/*detectar o toque no botão e transmitir o código da tecla para a função*/
+document.addEventListener('keydown', update);
+function update (event){
+	/*37-direita 38-baixo 39-esquerda 40-cima*/
+	if(event.keyCode == 37 && direction != "right") direction = "left";
+	if(event.keyCode == 38 && direction != "down") direction = "up";
+	if(event.keyCode == 39 && direction != "left") direction = "right";
+	if(event.keyCode == 40 && direction != "up") direction = "down";
+}
+
+/*iniciar o jogo*/
 function iniciarJogo(){
+	/*permitir que a cobrinha atravesse as paredes/canvas*/
+	if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
+	if(snake[0].x < 0 * box && direction == "left") snake[0].x = 16 * box;
+	if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
+	if(snake[0].y < 0 * box && direction == "up") snake[0].y = 16 * box;
+
 	criarBG();
 	criarcobrinha();
 
