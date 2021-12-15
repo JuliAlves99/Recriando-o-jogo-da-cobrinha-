@@ -29,7 +29,7 @@ function criarBG(){
 /*criando a cobrinha - adicionando o primeiro elemento e retirando o último isso vai fazer com que ela ande*/
 function criarcobrinha(){ /*vai pintar o corpo da cobrinha de verde e vai setar*/
 	for (i=0; i < snake.length; i++) {
-		context.fillStyle = "green";
+		context.fillStyle = "darkgreen";
 		context.fillRect(snake[i].x, snake[i].y, box, box);
 	}
 }
